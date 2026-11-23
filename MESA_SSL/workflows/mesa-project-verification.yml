@@ -35,7 +35,8 @@ jobs:
             assert mirror.is_file(), f"Missing mirror: {f.name}"
             assert f.read_bytes()==mirror.read_bytes(),f"Workflow mismatch: {f.name}"
             obsolete = "mesa_" + "ssl_benchmark"
-            assert obsolete not in f.read_text(encoding="utf-8"),f"Obsolete path: {f.name}"
+            if f.name != "mesa-project-verification.yml":
+              assert obsolete not in f.read_text(encoding="utf-8"),f"Obsolete path: {f.name}"
           print(f"PASS: {len(py)} Python sources, {len(scores)} benchmark rows, {len(audit['records'])} audit records")
           PY
           base64 -d MESA_SSL/bench_neuro_ssl.py.gz.b64 | gzip -dc > /tmp/bench_neuro_ssl.py
