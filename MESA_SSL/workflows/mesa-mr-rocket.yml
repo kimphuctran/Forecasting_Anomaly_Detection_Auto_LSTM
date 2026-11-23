@@ -1,0 +1,53 @@
+name: MESA and MiniRocket controlled development study
+on:
+  push:
+    branches: [mesa-ssl-official-benchmark-2026]
+    paths: ['.github/workflows/mesa-mr-rocket.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      matrix:
+        dataset: [GunPoint, ItalyPowerDemand, BasicMotions]
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install benchmark dependencies
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install 'aeon==1.6.0' 'scikit-learn>=1.5,<1.10'
+      - name: Restore verified source files
+        run: |
+          base64 -d mesa_ssl_benchmark/bench_neuro_ssl.py.gz.b64 | gzip -dc > bench_neuro_ssl.py
+          base64 -d mesa_ssl_benchmark/mesa_mr_experiment.py.gz.b64 | gzip -dc > mesa_mr_experiment.py
+          echo 'd269f6fc030bf26705c4b0b92f4c0c71516e8aec5a58131db4ba817afddd4884  mesa_mr_experiment.py' | sha256sum -c -
+          python -m py_compile bench_neuro_ssl.py mesa_mr_experiment.py mesa_ssl_benchmark/mesa_rocket_direct.py
+      - name: Evaluate fully isolated holdout seeds
+        run: |
+          python -m mesa_ssl_benchmark.mesa_rocket_direct --dataset "${{ matrix.dataset }}" --epochs 35 --seeds 203 204 205 \
+            --out "results/${{ matrix.dataset }}"
+      - name: Save provenance
+        if: always()
+        run: |
+          mkdir -p "results/${{ matrix.dataset }}"
+          python -m pip freeze > "results/${{ matrix.dataset }}/requirements.txt"
+          cp mesa_ssl_benchmark/mesa_rocket_direct.py "results/${{ matrix.dataset }}/mesa_rocket_direct.py" || true
+      - name: Upload experimental audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mesa-rocket-dev-${{ matrix.dataset }}
+          path: results/${{ matrix.dataset }}/
+          if-no-files-found: warn
+          retention-days: 30

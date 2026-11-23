@@ -1,0 +1,52 @@
+name: MESA unseen UCR datasets gauge-shape confirmation
+on:
+  push:
+    branches: [mesa-ssl-official-benchmark-2026]
+    paths: ['.github/workflows/mesa-canonical-unseen.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      matrix:
+        dataset: [ArrowHead, ECG200]
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install 'aeon==1.6.0' 'scikit-learn>=1.5,<1.10'
+      - name: Restore reference encoder and validate code
+        run: |
+          base64 -d mesa_ssl_benchmark/bench_neuro_ssl.py.gz.b64 | gzip -dc > bench_neuro_ssl.py
+          base64 -d mesa_ssl_benchmark/mesa_mr_experiment.py.gz.b64 | gzip -dc > mesa_mr_experiment.py
+          echo 'd269f6fc030bf26705c4b0b92f4c0c71516e8aec5a58131db4ba817afddd4884  mesa_mr_experiment.py' | sha256sum -c -
+          python -m py_compile bench_neuro_ssl.py mesa_mr_experiment.py mesa_ssl_benchmark/mesa_canonical.py
+      - name: Run clean and shifted evaluation
+        run: |
+          python -m mesa_ssl_benchmark.mesa_canonical --dataset "${{ matrix.dataset }}" --seeds 209 210 211 --epochs 35 \
+            --out "results/${{ matrix.dataset }}"
+      - name: Archive source and results
+        if: always()
+        run: |
+          mkdir -p "results/${{ matrix.dataset }}"
+          python -m pip freeze > "results/${{ matrix.dataset }}/requirements.txt"
+          cp mesa_ssl_benchmark/mesa_canonical.py "results/${{ matrix.dataset }}/mesa_canonical.py" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mesa-canonical-unseen-${{ matrix.dataset }}
+          path: results/${{ matrix.dataset }}/
+          if-no-files-found: warn
+          retention-days: 30
