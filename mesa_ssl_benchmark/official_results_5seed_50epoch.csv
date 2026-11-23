@@ -1,0 +1,76 @@
+dataset,method,seed,epochs,status,train_count,test_count,n_labeled,macro_f1,accuracy,seconds,implementation,revision,pretrained
+GunPoint,Raw,100,0,EXECUTED,50,150,10,0.6899545266639107,0.7,0.01,Unsupervised normalizer + logistic regression,,
+GunPoint,Raw,101,0,EXECUTED,50,150,10,0.7005432007056966,0.7133333333333334,0.01,Unsupervised normalizer + logistic regression,,
+GunPoint,Raw,102,0,EXECUTED,50,150,10,0.5549361625606906,0.56,0.01,Unsupervised normalizer + logistic regression,,
+GunPoint,Raw,103,0,EXECUTED,50,150,10,0.6815574325850309,0.6866666666666666,0.01,Unsupervised normalizer + logistic regression,,
+GunPoint,Raw,104,0,EXECUTED,50,150,10,0.7190066765934964,0.74,0.01,Unsupervised normalizer + logistic regression,,
+GunPoint,MESA-TS,100,50,EXECUTED,50,150,10,0.8733277034534868,0.8733333333333333,3.24,MESA-TS local adaptation; known signal offset and slope,,
+GunPoint,MESA-TS,101,50,EXECUTED,50,150,10,0.6647420376233936,0.68,3.07,MESA-TS local adaptation; known signal offset and slope,,
+GunPoint,MESA-TS,102,50,EXECUTED,50,150,10,0.6124031007751938,0.62,3.23,MESA-TS local adaptation; known signal offset and slope,,
+GunPoint,MESA-TS,103,50,EXECUTED,50,150,10,0.5799813325036669,0.58,3.21,MESA-TS local adaptation; known signal offset and slope,,
+GunPoint,MESA-TS,104,50,EXECUTED,50,150,10,0.6379726468222043,0.66,3.18,MESA-TS local adaptation; known signal offset and slope,,
+GunPoint,TS2Vec,100,50,EXECUTED,50,150,10,0.8385939741750359,0.84,9.2,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+GunPoint,TS2Vec,101,50,EXECUTED,50,150,10,0.6985645933014354,0.72,9.27,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+GunPoint,TS2Vec,102,50,EXECUTED,50,150,10,0.6663669490322275,0.6866666666666666,9.46,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+GunPoint,TS2Vec,103,50,EXECUTED,50,150,10,0.7661574094695114,0.7666666666666667,9.22,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+GunPoint,TS2Vec,104,50,EXECUTED,50,150,10,0.7272727272727273,0.7466666666666667,9.26,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+GunPoint,TimeMAE,100,50,EXECUTED,50,150,10,0.7013574660633484,0.7066666666666667,2.92,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+GunPoint,TimeMAE,101,50,EXECUTED,50,150,10,0.6767241379310345,0.6933333333333334,2.77,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+GunPoint,TimeMAE,102,50,EXECUTED,50,150,10,0.4925213675213675,0.49333333333333335,2.76,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+GunPoint,TimeMAE,103,50,EXECUTED,50,150,10,0.6977296135417133,0.7,2.67,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+GunPoint,TimeMAE,104,50,EXECUTED,50,150,10,0.7129186602870814,0.7333333333333333,2.67,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+GunPoint,MOMENT-1-small,100,0,EXECUTED,50,150,10,0.926401712832865,0.9266666666666666,5.25,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+GunPoint,MOMENT-1-small,101,0,EXECUTED,50,150,10,0.6901868485518037,0.7133333333333334,3.67,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+GunPoint,MOMENT-1-small,102,0,EXECUTED,50,150,10,0.6901868485518037,0.7133333333333334,3.64,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+GunPoint,MOMENT-1-small,103,0,EXECUTED,50,150,10,0.8099547511312217,0.8133333333333334,3.74,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+GunPoint,MOMENT-1-small,104,0,EXECUTED,50,150,10,0.7211497211497211,0.74,3.9,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+ItalyPowerDemand,Raw,100,0,EXECUTED,67,1029,10,0.9297983626440267,0.9300291545189504,0.01,Unsupervised normalizer + logistic regression,,
+ItalyPowerDemand,Raw,101,0,EXECUTED,67,1029,10,0.941671075504497,0.9416909620991254,0.01,Unsupervised normalizer + logistic regression,,
+ItalyPowerDemand,Raw,102,0,EXECUTED,67,1029,10,0.9268481332174404,0.9271137026239067,0.01,Unsupervised normalizer + logistic regression,,
+ItalyPowerDemand,Raw,103,0,EXECUTED,67,1029,10,0.9416666666666667,0.9416909620991254,0.01,Unsupervised normalizer + logistic regression,,
+ItalyPowerDemand,Raw,104,0,EXECUTED,67,1029,10,0.9249315712232479,0.9251700680272109,0.01,Unsupervised normalizer + logistic regression,,
+ItalyPowerDemand,MESA-TS,100,50,EXECUTED,67,1029,10,0.8216663115278073,0.8221574344023324,1.78,MESA-TS local adaptation; known signal offset and slope,,
+ItalyPowerDemand,MESA-TS,101,50,EXECUTED,67,1029,10,0.8969654718991589,0.8969873663751214,1.7,MESA-TS local adaptation; known signal offset and slope,,
+ItalyPowerDemand,MESA-TS,102,50,EXECUTED,67,1029,10,0.8869222199486165,0.8872691933916423,1.73,MESA-TS local adaptation; known signal offset and slope,,
+ItalyPowerDemand,MESA-TS,103,50,EXECUTED,67,1029,10,0.902299243460031,0.902818270165209,1.74,MESA-TS local adaptation; known signal offset and slope,,
+ItalyPowerDemand,MESA-TS,104,50,EXECUTED,67,1029,10,0.8683266397913928,0.8688046647230321,1.76,MESA-TS local adaptation; known signal offset and slope,,
+ItalyPowerDemand,TS2Vec,100,50,EXECUTED,67,1029,10,0.8181355273176458,0.8202137998056366,4.2,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+ItalyPowerDemand,TS2Vec,101,50,EXECUTED,67,1029,10,0.8825807138727444,0.8833819241982507,4.41,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+ItalyPowerDemand,TS2Vec,102,50,EXECUTED,67,1029,10,0.8529234299352395,0.8551992225461613,4.46,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+ItalyPowerDemand,TS2Vec,103,50,EXECUTED,67,1029,10,0.9063317833220812,0.9067055393586005,4.33,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+ItalyPowerDemand,TS2Vec,104,50,EXECUTED,67,1029,10,0.911548252719278,0.9115646258503401,4.31,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+ItalyPowerDemand,TimeMAE,100,50,EXECUTED,67,1029,10,0.9269270937387858,0.9271137026239067,2.43,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+ItalyPowerDemand,TimeMAE,101,50,EXECUTED,67,1029,10,0.8402029296177207,0.8415937803692906,2.41,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+ItalyPowerDemand,TimeMAE,102,50,EXECUTED,67,1029,10,0.6905016504718955,0.6919339164237124,2.41,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+ItalyPowerDemand,TimeMAE,103,50,EXECUTED,67,1029,10,0.9377777777777778,0.9378036929057337,2.41,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+ItalyPowerDemand,TimeMAE,104,50,EXECUTED,67,1029,10,0.8918078440473427,0.892128279883382,2.37,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+ItalyPowerDemand,MOMENT-1-small,100,0,EXECUTED,67,1029,10,0.9154199431050006,0.9154518950437318,15.2,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+ItalyPowerDemand,MOMENT-1-small,101,0,EXECUTED,67,1029,10,0.9212816093310982,0.9212827988338192,15.8,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+ItalyPowerDemand,MOMENT-1-small,102,0,EXECUTED,67,1029,10,0.9279924196574472,0.9280855199222546,16.02,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+ItalyPowerDemand,MOMENT-1-small,103,0,EXECUTED,67,1029,10,0.9183672698424691,0.9183673469387755,16,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+ItalyPowerDemand,MOMENT-1-small,104,0,EXECUTED,67,1029,10,0.9231102463865855,0.923226433430515,16.05,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+BasicMotions,Raw,100,0,EXECUTED,40,40,20,0.482397504456328,0.55,0.01,Unsupervised normalizer + logistic regression,,
+BasicMotions,Raw,101,0,EXECUTED,40,40,20,0.5152922412984333,0.575,0.01,Unsupervised normalizer + logistic regression,,
+BasicMotions,Raw,102,0,EXECUTED,40,40,20,0.5144649257552483,0.6,0.01,Unsupervised normalizer + logistic regression,,
+BasicMotions,Raw,103,0,EXECUTED,40,40,20,0.5199175824175825,0.6,0.01,Unsupervised normalizer + logistic regression,,
+BasicMotions,Raw,104,0,EXECUTED,40,40,20,0.6195286195286195,0.675,0.01,Unsupervised normalizer + logistic regression,,
+BasicMotions,MESA-TS,100,50,EXECUTED,40,40,20,0.9749373433583959,0.975,2.56,MESA-TS local adaptation; known signal offset and slope,,
+BasicMotions,MESA-TS,101,50,EXECUTED,40,40,20,0.974937343358396,0.975,2.2,MESA-TS local adaptation; known signal offset and slope,,
+BasicMotions,MESA-TS,102,50,EXECUTED,40,40,20,1,1,2.14,MESA-TS local adaptation; known signal offset and slope,,
+BasicMotions,MESA-TS,103,50,EXECUTED,40,40,20,1,1,2.23,MESA-TS local adaptation; known signal offset and slope,,
+BasicMotions,MESA-TS,104,50,EXECUTED,40,40,20,1,1,2.17,MESA-TS local adaptation; known signal offset and slope,,
+BasicMotions,TS2Vec,100,50,EXECUTED,40,40,20,0.974937343358396,0.975,3.97,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+BasicMotions,TS2Vec,101,50,EXECUTED,40,40,20,0.9749373433583959,0.975,4.17,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+BasicMotions,TS2Vec,102,50,EXECUTED,40,40,20,0.9749373433583959,0.975,4.36,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+BasicMotions,TS2Vec,103,50,EXECUTED,40,40,20,0.9749373433583959,0.975,4.44,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+BasicMotions,TS2Vec,104,50,EXECUTED,40,40,20,0.9749373433583959,0.975,4.42,TS2Vec authors code; compact hyperparameters,b0088e14a99706c05451316dc6db8d3da9351163,
+BasicMotions,TimeMAE,100,50,EXECUTED,40,40,20,0.8994949494949495,0.9,1.85,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+BasicMotions,TimeMAE,101,50,EXECUTED,40,40,20,0.8962503183091418,0.9,1.7,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+BasicMotions,TimeMAE,102,50,EXECUTED,40,40,20,0.9498746867167919,0.95,1.79,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+BasicMotions,TimeMAE,103,50,EXECUTED,40,40,20,0.95,0.95,1.82,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+BasicMotions,TimeMAE,104,50,EXECUTED,40,40,20,0.9246411483253588,0.925,1.74,TimeMAE authors architecture/loss; common training driver,31690745c2149f41c33afd5879ab57da8894e5cc,
+BasicMotions,MOMENT-1-small,100,0,EXECUTED,40,40,20,0.9494949494949495,0.95,12.38,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+BasicMotions,MOMENT-1-small,101,0,EXECUTED,40,40,20,0.974937343358396,0.975,10.22,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+BasicMotions,MOMENT-1-small,102,0,EXECUTED,40,40,20,0.9232736572890026,0.925,10.3,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+BasicMotions,MOMENT-1-small,103,0,EXECUTED,40,40,20,0.9494949494949495,0.95,10.31,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
+BasicMotions,MOMENT-1-small,104,0,EXECUTED,40,40,20,0.9494949494949495,0.95,10.18,Official pretrained MOMENT-Small,AutonLab/MOMENT-1-small@411e288267f82cce86296dbe4d6c8bc533cc162f,true
