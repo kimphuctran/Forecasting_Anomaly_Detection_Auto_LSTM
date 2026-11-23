@@ -1,4 +1,4 @@
-name: MESA-SSL actual official-model smoke evaluation
+name: MESA-SSL official models five-seed evaluation
 on:
   push:
     branches: [mesa-ssl-official-benchmark-2026]
@@ -46,8 +46,10 @@ jobs:
           python -m py_compile bench_neuro_ssl.py
       - name: Evaluate on official dataset split
         run: |
-          python bench_neuro_ssl.py --dataset "${{ matrix.dataset }}" --seed 100 --epochs 5 \
-            --methods Raw MESA-TS TS2Vec TimeMAE MOMENT-1-small --out "results/${{ matrix.dataset }}"
+          for SEED in 100 101 102 103 104; do
+            python bench_neuro_ssl.py --dataset "${{ matrix.dataset }}" --seed "$SEED" --epochs 50 \
+              --methods Raw MESA-TS TS2Vec TimeMAE MOMENT-1-small --out "results/${{ matrix.dataset }}/seed_${SEED}"
+          done
       - name: Record dependencies and archive outcomes
         if: always()
         run: |
