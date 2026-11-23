@@ -35,9 +35,9 @@ jobs:
           mkdir -p third_party
           git clone --depth 1 https://github.com/zhihanyue/ts2vec.git third_party/ts2vec
           git clone --depth 1 https://github.com/ustc-time-series/TimeMAE.git third_party/TimeMAE
-          mkdir -p "results/\${{ matrix.dataset }}"
-          git -C third_party/ts2vec rev-parse HEAD > "results/\${{ matrix.dataset }}/ts2vec.commit.txt"
-          git -C third_party/TimeMAE rev-parse HEAD > "results/\${{ matrix.dataset }}/timemae.commit.txt"
+          mkdir -p "results/${{ matrix.dataset }}"
+          git -C third_party/ts2vec rev-parse HEAD > "results/${{ matrix.dataset }}/ts2vec.commit.txt"
+          git -C third_party/TimeMAE rev-parse HEAD > "results/${{ matrix.dataset }}/timemae.commit.txt"
       - name: Decode and verify reproducible runner
         run: |
           base64 -d mesa_ssl_benchmark/bench_neuro_ssl.py.gz.b64 | gzip -dc > bench_neuro_ssl.py
@@ -45,19 +45,19 @@ jobs:
           python -m py_compile bench_neuro_ssl.py
       - name: Evaluate on official dataset split
         run: |
-          python bench_neuro_ssl.py --dataset "\${{ matrix.dataset }}" --seed 100 --epochs 5 \
-            --methods Raw MESA-TS TS2Vec TimeMAE MOMENT-1-small --out "results/\${{ matrix.dataset }}"
+          python bench_neuro_ssl.py --dataset "${{ matrix.dataset }}" --seed 100 --epochs 5 \
+            --methods Raw MESA-TS TS2Vec TimeMAE MOMENT-1-small --out "results/${{ matrix.dataset }}"
       - name: Record dependencies and archive outcomes
         if: always()
         run: |
-          mkdir -p "results/\${{ matrix.dataset }}"
-          python -m pip freeze > "results/\${{ matrix.dataset }}/requirements-lock.txt"
-          cp bench_neuro_ssl.py "results/\${{ matrix.dataset }}/bench_neuro_ssl.py" || true
+          mkdir -p "results/${{ matrix.dataset }}"
+          python -m pip freeze > "results/${{ matrix.dataset }}/requirements-lock.txt"
+          cp bench_neuro_ssl.py "results/${{ matrix.dataset }}/bench_neuro_ssl.py" || true
       - name: Upload per-dataset provenance and scores
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mesa-official-benchmark-\${{ matrix.dataset }}
-          path: results/\${{ matrix.dataset }}/
+          name: mesa-official-benchmark-${{ matrix.dataset }}
+          path: results/${{ matrix.dataset }}/
           if-no-files-found: warn
           retention-days: 30
