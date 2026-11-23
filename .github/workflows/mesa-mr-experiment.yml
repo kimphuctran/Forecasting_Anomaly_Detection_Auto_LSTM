@@ -29,9 +29,9 @@ jobs:
           python -m pip install 'aeon==1.6.0' 'scikit-learn>=1.5,<1.10'
       - name: Restore validated benchmark sources
         run: |
-          base64 -d mesa_ssl_benchmark/bench_neuro_ssl.py.gz.b64 | gzip -dc > bench_neuro_ssl.py
+          base64 -d MESA_SSL/bench_neuro_ssl.py.gz.b64 | gzip -dc > bench_neuro_ssl.py
           echo 'd5578abed721e1ab0cafb9c45e13ca7999ef1b2b1d26fe516b96a09e64467860  bench_neuro_ssl.py' | sha256sum -c -
-          base64 -d mesa_ssl_benchmark/mesa_mr_experiment.py.gz.b64 | gzip -dc > mesa_mr_experiment.py
+          base64 -d MESA_SSL/mesa_mr_experiment.py.gz.b64 | gzip -dc > mesa_mr_experiment.py
           echo 'd269f6fc030bf26705c4b0b92f4c0c71516e8aec5a58131db4ba817afddd4884  mesa_mr_experiment.py' | sha256sum -c -
           python -m py_compile bench_neuro_ssl.py mesa_mr_experiment.py
       - name: Run mechanism and architecture ablation

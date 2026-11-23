@@ -4,7 +4,7 @@ import argparse,json,time,traceback
 from pathlib import Path
 import numpy as np
 from bench_neuro_ssl import eval_probe,ts2vec,timemae,moment,seed_everything
-from mesa_ssl_benchmark.mesa_canonical import load_data
+from MESA_SSL.mesa_canonical import load_data
 
 def main():
     p=argparse.ArgumentParser()

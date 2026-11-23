@@ -6,7 +6,7 @@ import numpy as np
 from aeon.transformations.collection.convolution_based import MiniRocket
 from bench_neuro_ssl import eval_probe
 from mesa_mr_experiment import train_encoder,encode
-from mesa_ssl_benchmark.mesa_canonical import load_data,separate
+from MESA_SSL.mesa_canonical import load_data,separate
 
 def representations(train,test,seed):
     model=MiniRocket(n_kernels=1008,random_state=seed,n_jobs=1)

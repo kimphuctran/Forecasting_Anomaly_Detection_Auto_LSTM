@@ -42,8 +42,8 @@ Do not claim that the complete MESA-SSL system outperforms TS2Vec, TimeMAE, MOME
 - Unseen ArrowHead/ECG200 stress test: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/actions/runs/45157815753
 - Official-source SSL comparison on unseen datasets: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/actions/runs/45158314054
 - Common logistic probe validation: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/actions/runs/45158783680
-- 147-record architecture audit: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/blob/mesa-ssl-official-benchmark-2026/mesa_ssl_benchmark/optimization_results_2026-11-23.json
-- Original-source SSL comparison CSV: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/blob/mesa-ssl-official-benchmark-2026/mesa_ssl_benchmark/unseen_official_ssl_209_211.csv
-- Fair-probe 30-record CSV: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/blob/mesa-ssl-official-benchmark-2026/mesa_ssl_benchmark/identical_probe_unseen_209_211.csv
+- 147-record architecture audit: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/blob/mesa-ssl-official-benchmark-2026/MESA_SSL/optimization_results_2026-11-23.json
+- Original-source SSL comparison CSV: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/blob/mesa-ssl-official-benchmark-2026/MESA_SSL/unseen_official_ssl_209_211.csv
+- Fair-probe 30-record CSV: https://github.com/kimphuctran/Forecasting_Anomaly_Detection_Auto_LSTM/blob/mesa-ssl-official-benchmark-2026/MESA_SSL/identical_probe_unseen_209_211.csv
 
 All code and results remain in the isolated `mesa-ssl-official-benchmark-2026` branch. The repository is public.
