@@ -52,8 +52,31 @@ def evaluate(trainblocks,testblocks,testshiftblocks,y,labels,ix,keys):
         out[mode]=float(f1_score(labels,pred,average='macro'))
     return out,{'concept_weight':cw,'learned_weight':lw,'ridge':alpha,'train_loo_f1':cv}
 
+def load_data(name):
+    if name in ('GunPoint','ItalyPowerDemand','BasicMotions'):
+        return acquire(name)
+    from aeon import datasets
+    if name=='ArrowHead':
+        f=datasets.load_arrow_head
+        a,y=f(split='TRAIN'); b,z=f(split='TEST')
+    else:
+        a,y=datasets.load_classification(name,split='TRAIN')
+        b,z=datasets.load_classification(name,split='TEST')
+    names=sorted(set(map(str,y)).union(set(map(str,z))))
+    conv={q:i for i,q in enumerate(names)}
+    labels=np.array([conv[str(i)] for i in y])
+    targets=np.array([conv[str(i)] for i in z])
+    a=np.asarray(a).transpose(0,2,1).astype('float32')
+    b=np.asarray(b).transpose(0,2,1).astype('float32')
+    mu=a.mean(axis=(0,1),keepdims=True)
+    sd=np.maximum(a.std(axis=(0,1),keepdims=True),1e-5)
+    a=(a-mu)/sd; b=(b-mu)/sd
+    assert a.ndim==b.ndim==3 and np.isfinite(a).all() and np.isfinite(b).all()
+    assert min(np.bincount(labels))>=5
+    return a,b,labels,targets,names
+
 def run(args):
-    train,test,y,z,_=acquire(args.dataset)
+    train,test,y,z,_=load_data(args.dataset)
     test_t=np.linspace(-1,1,test.shape[1],dtype=np.float32)
     rows=[]
     for seed in args.seeds:
